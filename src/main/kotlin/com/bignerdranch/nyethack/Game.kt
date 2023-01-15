@@ -6,10 +6,12 @@ fun main(args: Array<String>) {
     val player = Player("Dima", /*75, true, false, "gnome"*/)
     player.castFireball(45)
 
+    val currentRoom: Room = TownSquare()
+    println(currentRoom.description())
+    println(currentRoom.load())
+
     // player state
     printPlayerStatus(player)
-    println("Im playing")
-    println("again")
 
 }
 
@@ -20,6 +22,7 @@ private fun printPlayerStatus(player: Player) {
     println("${player.name} ${player.formatHealthStatus()}")
     println("${player.name} is ${player.race}")
 }
+
 
 
 
