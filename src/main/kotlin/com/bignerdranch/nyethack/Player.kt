@@ -1,6 +1,7 @@
 package com.bignerdranch.nyethack
 
 import java.io.File
+import java.util.*
 
 class Player(_name: String,
              var healthPoints: Int = 100,
@@ -9,12 +10,14 @@ class Player(_name: String,
              val race : String){
 
     var name: String = _name
-        get() = "${field.capitalize()} of $hometown"
+        get() = "${field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} of $hometown"
         set(value) {
             field = value.trim()
         }
 
     val hometown : String by lazy {selectHometown()}
+    var currentPosition = Coordinate(0, 0)
+
 
     init {
         require(healthPoints > 0) { "healthPoints must be greater that zero." }
