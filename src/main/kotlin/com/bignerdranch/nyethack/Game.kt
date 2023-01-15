@@ -8,6 +8,8 @@ fun main(args: Array<String>) {
 
     // player state
     printPlayerStatus(player)
+    println("Im playing")
+    println("again")
 
 }
 
